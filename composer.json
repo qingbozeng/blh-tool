@@ -1,0 +1,31 @@
+{
+    "name": "seebyyu/blh",
+    "description": "百里汇sdk",
+    "keywords": [
+        "blh-sdk",
+        "sdk"
+    ],
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "seebyyu",
+            "email": "seebyyu@gmail.com"
+        }
+    ],
+    "require": {
+        "php": ">=7.2",
+        "guzzlehttp/guzzle": "^6.2",
+        "pimple/pimple": "^3.0",
+        "illuminate/support": "^7.4"
+    },
+    "require-dev": {
+        "mockery/mockery": "^1.2.3",
+        "phpstan/phpstan": "^0.12.0",
+        "phpunit/phpunit": "^7.5"
+    },
+    "autoload": {
+        "psr-4": {
+            "Blh\\": "src"
+        }
+    }
+}
