@@ -95,7 +95,7 @@ abstract class AccessToken
         $result = json_decode($response->getBody()->getContents(), true);
 
         if (empty($result[$this->tokenKey])) {
-            throw new HttpException('Request access_token fail: '.json_encode($result, JSON_UNESCAPED_UNICODE), $response);
+            throw new HttpException('Request fail: '.json_encode($result, JSON_UNESCAPED_UNICODE), $response);
         }
 
         return $result;
