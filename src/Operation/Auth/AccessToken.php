@@ -10,13 +10,16 @@
 namespace Blh\Operation\Auth;
 
 
-use \Blh\Kernel\AccessToken as BaseAccessToken;
+use Blh\Kernel\AccessToken as BaseAccessToken;
 use Blh\Kernel\Exceptions\HttpException;
 use Blh\Kernel\Exceptions\InvalidArgumentException;
+use Blh\Kernel\Traits\InteractsWithCache;
 use Illuminate\Support\Arr;
 
 class AccessToken extends BaseAccessToken
 {
+
+    use InteractsWithCache;
 
     /**
      * @var string
@@ -37,6 +40,11 @@ class AccessToken extends BaseAccessToken
      * @var string
      */
     protected $tokenExpiresKey = 'data.deadline';
+
+    /**
+     * @var string
+     */
+    protected $tokenCacheKey = 'blh.token';
 
     /**
      * @return array
@@ -87,16 +95,39 @@ class AccessToken extends BaseAccessToken
     /**
      * @param bool $refresh
      * @return array
+     *
      * @throws HttpException
      * @throws InvalidArgumentException
+     * @throws \Psr\SimpleCache\InvalidArgumentException
      */
-    public function getToken(bool $refresh = false): array
+    public function getToken(bool $refresh = false)
     {
+
+        $token = $this->getCache()->get($this->tokenCacheKey);
+
+        if( !empty($token)){
+            return $token;
+        }
 
         $token = Arr::dot($this->requestToken($this->getCredentials()));
 
         $this->setToken($token[$this->tokenKey], isset($token[$this->tokenExpiresKey]) ? (strtotime($token[$this->tokenExpiresKey]) - time()) : 7200);
 
-        return $token;
+        return $token[$this->tokenKey];
     }
+
+    /**
+     * @param string $token
+     * @param int $lifetime
+     * @return $this|BaseAccessToken
+     * @throws \Psr\SimpleCache\InvalidArgumentException
+     */
+    public function setToken(string $token, int $lifetime = 7200)
+    {
+
+        $this->getCache()->set($this->tokenCacheKey, $token, $lifetime);
+
+        return $this;
+    }
+
 }

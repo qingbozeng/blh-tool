@@ -72,7 +72,7 @@ abstract class AccessToken
      * @throws HttpException
      * @throws InvalidArgumentException
      */
-    public function getToken(bool $refresh = false): array
+    public function getToken(bool $refresh = false)
     {
 
         $token = $this->requestToken($this->getCredentials());

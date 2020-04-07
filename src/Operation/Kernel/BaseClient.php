@@ -39,7 +39,7 @@ class BaseClient
     {
         $this->app = $app;
 
-        $this->token = $this->app['token']->getToken()['data.token'];
+        $this->token = $this->app['token']->getToken();
 
         $this->setHttpClient($this->app['http_client']);
     }
