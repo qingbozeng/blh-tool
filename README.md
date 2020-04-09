@@ -12,15 +12,46 @@ $ composer require seebyyu/blh -vvv
 ## Usage
 配置信息
 ```php
-    $operation = \Blh\Factory::operation([
+<?php
 
-        'app_id' => 'test',
-        'secret' => 'test',
+[
 
-        'sms' => [
-            'sign' =>  'test'
+    /**
+     * 账号基本信息，联系客服发放
+     */
+    'app_id' => 'appid',
+    'secret' => 'secret',
+
+    'sms' => [
+        'sign' =>  'test'
+    ],
+
+    /**
+     * 配置缓存前缀
+     * - 多数应用于令牌
+     */
+    'cache' => [
+
+        'prefix' => 'blh_tool',
+
+        //  Driver list: file or redis, default file
+        'driver' => RedisAdapter::class,
+        'option' => [
+
         ]
-    ]);
+    ],
+
+    /**
+     * http 客户端
+     * http://docs.guzzlephp.org/en/stable/request-config.html
+     *
+     * - base_uri 测试环境应该接口域名
+     */
+    'http' => [
+        'verify' => false
+    ]
+]
+
 ```
 ## Rely on
 - pimple/pimple
