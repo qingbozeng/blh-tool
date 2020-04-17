@@ -15,13 +15,13 @@ use Blh\Kernel\ServiceContainer;
 /**
  * Class Application.
  *
- * @property \Blh\Operation\Order\Client            $order
- * @property \Blh\Operation\Notice\Client           $notice
- * @property \Blh\Operation\Merchandise\Client      $merchandise
- * @property \Blh\Operation\Sms\Client              $sms
- * @property \Blh\Operation\Address\Client          $address
- * @property \Blh\Operation\Store\Client            $store
- * @property \Blh\Operation\Logistic\Client         $logistic
+ * @property \Blh\Operation\Order\Client            $order              //  订单列表
+ * @property \Blh\Operation\Notice\Client           $notice             //  消息通知
+ * @property \Blh\Operation\Merchandise\Client      $merchandise        //  商品详情
+ * @property \Blh\Operation\Sms\Client              $sms                //  短信接口
+ * @property \Blh\Operation\Address\Client          $address            //  收货地址
+ * @property \Blh\Operation\Store\Client            $store              //  京东库存
+ * @property \Blh\Operation\Logistic\Client         $logistic           //  物流信息
  */
 class Application extends ServiceContainer
 {
