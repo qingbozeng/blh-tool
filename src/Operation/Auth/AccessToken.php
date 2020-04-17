@@ -105,13 +105,13 @@ class AccessToken extends BaseAccessToken
 
         $token = $this->getCache()->get($this->tokenCacheKey);
 
-        if( !empty($token)){
+        if( !empty($token) && !$refresh){
             return $token;
         }
 
         $token = Arr::dot($this->requestToken($this->getCredentials()));
 
-        $this->setToken($token[$this->tokenKey], isset($token[$this->tokenExpiresKey]) ? (strtotime($token[$this->tokenExpiresKey]) - time()) : 7200);
+        $this->setToken($token[$this->tokenKey], 7200);
 
         return $token[$this->tokenKey];
     }

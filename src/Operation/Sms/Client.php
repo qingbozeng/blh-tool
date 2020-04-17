@@ -29,7 +29,8 @@ class Client extends BaseClient
     public function send($phone, $content, $sign = '')
     {
         return $this->httpPost($this->sendSms, [
-            'mobile' => $phone, 'content' => $content,
+            'content' => $content,
+            'mobile' => $phone,
             'sign' => $sign ?: $this->app['config']->get('sms.sign')
         ]);
     }
