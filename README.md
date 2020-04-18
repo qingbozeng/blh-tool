@@ -10,11 +10,10 @@ $ composer require seebyyu/blh -vvv
 ```
 
 ## Usage
-配置信息
+Config
 ```php
-<?php
 
-[
+return [
 
     /**
      * 账号基本信息，联系客服发放
@@ -23,6 +22,8 @@ $ composer require seebyyu/blh -vvv
     'secret' => 'secret',
 
     'sms' => [
+
+        //  默认短信签名
         'sign' =>  'test'
     ],
 
@@ -50,9 +51,23 @@ $ composer require seebyyu/blh -vvv
     'http' => [
         'verify' => false
     ]
-]
+];
 
 ```
+
+Example
+```php
+
+# 获取通知消息
+$app = \Blh\Factory::operation($config);
+$app->notice->getList();
+
+# 发送短信
+$app->sms->send('139****5804', 'see hi', '签名');
+
+...
+```
+
 ## Rely on
 - pimple/pimple
 - guzzlehttp/guzzle
