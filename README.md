@@ -29,7 +29,7 @@ return [
     /**
      * 配置缓存前缀
      */
-    'cache' => [
+    'token' => [
         'prefix' => 'blh_tool'
     ],
 

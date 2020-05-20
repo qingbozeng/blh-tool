@@ -46,7 +46,7 @@ class AccessToken extends BaseAccessToken
      */
     public function getTokenCacheKey()
     {
-        return $this->app['config']->get('cache.prefix', $this->tokenCacheKey);
+        return $this->app['config']->get('token.prefix', $this->tokenCacheKey);
     }
 
     /**
