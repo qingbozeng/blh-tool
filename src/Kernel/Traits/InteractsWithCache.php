@@ -34,10 +34,11 @@ trait InteractsWithCache
         }
 
         if (property_exists($this, 'app') && $this->app instanceof ServiceContainer && isset($this->app['cache'])) {
+
             $this->setCache($this->app['cache']);
 
             // Fix PHPStan error
-            assert($this->cache instanceof \Psr\SimpleCache\CacheInterface);
+//            assert($this->cache instanceof \Psr\SimpleCache\CacheInterface);
 
             return $this->cache;
         }

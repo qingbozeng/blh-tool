@@ -40,18 +40,6 @@ class ServiceContainer extends Container
     protected $userConfig = [];
 
     /**
-     * Return all providers.
-     *
-     * @return array
-     */
-    public function getProviders()
-    {
-        return array_merge([
-            \Blh\Kernel\Providers\ConfigServiceProvider::class
-        ], $this->providers);
-    }
-
-    /**
      * @return array
      */
     public function getConfig()
@@ -69,6 +57,40 @@ class ServiceContainer extends Container
     }
 
     /**
+     * Return all providers.
+     *
+     * @return array
+     */
+    public function getProviders()
+    {
+        return array_merge([
+            \Blh\Kernel\Providers\ConfigServiceProvider::class
+        ], $this->providers);
+    }
+
+    /**
+     * @param string $id
+     * @param mixed  $value
+     */
+    public function rebind($id, $value)
+    {
+        $this->offsetUnset($id);
+        $this->offsetSet($id, $value);
+    }
+
+    /**
+     * Magic get access.
+     *
+     * @param string $id
+     *
+     * @return mixed
+     */
+    public function __get($id)
+    {
+        return $this->offsetGet($id);
+    }
+
+    /**
      * @param array $providers
      */
     public function registerProviders(array $providers)
@@ -76,10 +98,5 @@ class ServiceContainer extends Container
         foreach ($providers as $provider) {
             parent::register(new $provider());
         }
-    }
-
-    public function __get($name)
-    {
-        return $this->offsetGet($name);
     }
 }

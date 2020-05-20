@@ -22,31 +22,20 @@ return [
     'secret' => 'secret',
 
     'sms' => [
-
         //  默认短信签名
         'sign' =>  'test'
     ],
 
     /**
      * 配置缓存前缀
-     * - 多数应用于令牌
      */
     'cache' => [
-
-        'prefix' => 'blh_tool',
-
-        //  Driver list: file or redis, default file
-        'driver' => RedisAdapter::class,
-        'option' => [
-
-        ]
+        'prefix' => 'blh_tool'
     ],
 
     /**
      * http 客户端
      * http://docs.guzzlephp.org/en/stable/request-config.html
-     *
-     * - base_uri 测试环境应该接口域名
      */
     'http' => [
         'verify' => false
@@ -58,14 +47,27 @@ return [
 Example
 ```php
 
-# 获取通知消息
+// 获取通知消息
 $app = \Blh\Factory::operation($config);
 $app->notice->getList();
 
-# 发送短信
+// 发送短信
 $app->sms->send('139****5804', 'see hi', '签名');
 
 ...
+```
+
+Laravel
+```php
+
+use Symfony\Component\Cache\Adapter\RedisAdapter;
+
+// 设置应用前缀
+config()->set('database.redis.options.prefix', '');
+
+// 替换缓存容器
+$app->rebind('cache', new RedisAdapter(app('redis')->connection()->client()));
+
 ```
 
 ## Rely on

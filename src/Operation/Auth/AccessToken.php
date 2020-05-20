@@ -39,12 +39,15 @@ class AccessToken extends BaseAccessToken
     /**
      * @var string
      */
-    protected $tokenExpiresKey = 'data.deadline';
+    protected $tokenCacheKey = 'blh.token';
 
     /**
-     * @var string
+     * @return mixed
      */
-    protected $tokenCacheKey = 'blh.token';
+    public function getTokenCacheKey()
+    {
+        return $this->app['config']->get('cache.prefix', $this->tokenCacheKey);
+    }
 
     /**
      * @return array
@@ -103,7 +106,7 @@ class AccessToken extends BaseAccessToken
     public function getToken(bool $refresh = false)
     {
 
-        $token = $this->getCache()->get($this->tokenCacheKey);
+        $token = $this->getCache()->get($this->getTokenCacheKey());
 
         if( !empty($token) && !$refresh){
             return $token;
@@ -125,7 +128,7 @@ class AccessToken extends BaseAccessToken
     public function setToken(string $token, int $lifetime = 7200)
     {
 
-        $this->getCache()->set($this->tokenCacheKey, $token, $lifetime);
+        $this->getCache()->set($this->getTokenCacheKey(), $token, $lifetime);
 
         return $this;
     }
