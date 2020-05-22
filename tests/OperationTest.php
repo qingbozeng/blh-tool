@@ -10,6 +10,7 @@ namespace blh\tests;
 
 
 use Blh\Factory;
+use Blh\Operation\Exceptions\BusinessException;
 use PHPUnit\Framework\TestCase;
 
 class OperationTest extends TestCase
@@ -54,11 +55,24 @@ class OperationTest extends TestCase
     ];
 
     /**
+     * init
+     *
      * @return void
      */
     public function setUp()
     {
         $this->app = Factory::operation($this->config);
+    }
+
+    /**
+     * Request Token
+     *
+     * @throws \Blh\Operation\Exceptions\BusinessException
+     * @throws \GuzzleHttp\Exception\GuzzleException
+     */
+    public function testToken()
+    {
+        $this->assertIsString($this->app->token->getRefreshedToken());
     }
 
     /**
@@ -82,5 +96,24 @@ class OperationTest extends TestCase
     public function testNotice()
     {
         $this->assertArrayHasKey('notice_num', $this->app->notice->getList());
+    }
+
+    /**
+     * 发送短信
+     *
+     * @throws BusinessException
+     * @throws \GuzzleHttp\Exception\GuzzleException
+     */
+    public function testSms()
+    {
+        $result = false;
+
+        try {
+            $result = $this->app->sms->send('1398****804', 'see hi');
+        }catch (BusinessException $exception){
+            $errMsg = $exception->getMessage();
+        }
+
+        $this->assertNull($result, $errMsg ?? '');
     }
 }
