@@ -29,5 +29,10 @@
         "psr-4": {
             "Blh\\": "src"
         }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Blh\\Tests\\": "tests/"
+        }
     }
 }
