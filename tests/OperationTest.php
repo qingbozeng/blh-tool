@@ -116,4 +116,81 @@ class OperationTest extends TestCase
 
         $this->assertNull($result, $errMsg ?? '');
     }
+
+    /**
+     * 订单发货信息查询（实物订单）
+     *
+     * @throws \GuzzleHttp\Exception\GuzzleException
+     */
+    public function testOrderShipment()
+    {
+
+        //  订单号
+        $order_sn = '000000111111000000111111';
+        $result = false;
+
+        try {
+            $result = $this->app->order->shipment($order_sn);
+        }catch (BusinessException $exception) {
+            $errMsg = $exception->getMessage();
+        }
+
+        $this->assertIsArray($result, $errMsg ?? '');
+    }
+
+    /**
+     * 订单发货信息查询（实物订单）
+     *
+     * @throws \GuzzleHttp\Exception\GuzzleException
+     */
+    public function testOrderCreate()
+    {
+
+        $result = false;
+
+        //  是否为京东下单
+        $isJD = false;
+
+        $attr = [
+            //  创建订单属性,详见文档说明
+            'sendcms' => '',
+            //  三方客户订单编号
+            'orderId' => '',
+            //  订单类型（ 1:自营实物订单，2虚拟卡券订单，3：直充产品订单，4：京东实物订单 ）
+            'isvirtual' => '',
+            //  shouhuo_phone
+            'shouhuo_phone' => '',
+            //  订单商品
+            'products' => [
+                [
+                    //  商品数量
+                    "number" => 1,
+                    //  商品id
+                    "itemId" => ''
+                ]
+            ],
+            //  收货人姓名，实物类订单必选
+            'shouhuo_name' => "" ,
+            //  收货地址区域（level1）实物类订单必选
+            'provinceId' => "",
+            //  收货地址区域（level2）实物类订单必选
+            'cityId' => "",
+            //  收货地址区域（level3）实物类订单必选
+            'countyId' => "",
+            //  收货地址区域（level4）实物类订单必选，为空则=0
+            'townId' => "",
+            //  收货详细地址，实物订单必选
+            'shouhuo_addr' => "",
+            //  收货地址区域选项类型，实物订单必选 1：地址库ID，2：文字
+            'addr_type' => 1,
+        ];
+
+        try {
+            $result = $this->app->order->create($attr, $isJD);
+        }catch (BusinessException $exception) {
+            $errMsg = $exception->getMessage();
+        }
+
+        $this->assertIsArray($result, $errMsg ?? '');
+    }
 }
