@@ -55,7 +55,7 @@ class OperationTest extends TestCase
     ];
 
     /**
-     * init
+     * init 初始化应用
      *
      * @return void
      */
