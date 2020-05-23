@@ -236,4 +236,44 @@ class OperationTest extends TestCase
         $this->assertIsArray($result, $errMsg ?? '');
     }
 
+    /**
+     * 商城商品集
+     *
+     * @throws \GuzzleHttp\Exception\GuzzleException
+     */
+    public function testMerchandiseIds()
+    {
+
+        $result = false;
+
+        try {
+            $result = $this->app->merchandise->ids();
+        }catch (BusinessException $exception) {
+            $errMsg = $exception->getMessage();
+        }
+
+        $this->assertIsArray($result, $errMsg ?? '');
+    }
+
+    /**
+     * 获取商品详情
+     *
+     * @throws \GuzzleHttp\Exception\GuzzleException
+     */
+    public function testMerchandiseDetail()
+    {
+
+        //  从 merchandise->ids() 获取
+        $source_id = 0;
+        $result = false;
+
+        try {
+            $result = $this->app->merchandise->detail($source_id);
+        }catch (BusinessException $exception) {
+            $errMsg = $exception->getMessage();
+        }
+
+        $this->assertIsArray($result, $errMsg ?? '');
+    }
+
 }
