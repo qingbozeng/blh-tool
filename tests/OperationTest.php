@@ -122,27 +122,6 @@ class OperationTest extends TestCase
      *
      * @throws \GuzzleHttp\Exception\GuzzleException
      */
-    public function testOrderShipment()
-    {
-
-        //  订单号
-        $order_sn = '000000111111000000111111';
-        $result = false;
-
-        try {
-            $result = $this->app->order->shipment($order_sn);
-        }catch (BusinessException $exception) {
-            $errMsg = $exception->getMessage();
-        }
-
-        $this->assertIsArray($result, $errMsg ?? '');
-    }
-
-    /**
-     * 订单发货信息查询（实物订单）
-     *
-     * @throws \GuzzleHttp\Exception\GuzzleException
-     */
     public function testOrderCreate()
     {
 
@@ -193,4 +172,68 @@ class OperationTest extends TestCase
 
         $this->assertIsArray($result, $errMsg ?? '');
     }
+
+    /**
+     * 订单发货信息查询（实物订单）
+     *
+     * @throws \GuzzleHttp\Exception\GuzzleException
+     */
+    public function testOrderShipment()
+    {
+
+        //  订单号
+        $order_sn = '000000111111000000111111';
+        $result = false;
+
+        try {
+            $result = $this->app->order->shipment($order_sn);
+        }catch (BusinessException $exception) {
+            $errMsg = $exception->getMessage();
+        }
+
+        $this->assertIsArray($result, $errMsg ?? '');
+    }
+
+    /**
+     * 订单详情
+     *
+     * @throws \GuzzleHttp\Exception\GuzzleException
+     */
+    public function testOrderDetail()
+    {
+
+        //  订单号
+        $order_sn = '000000111111000000111111';
+        $result = false;
+
+        try {
+            $result = $this->app->order->detail($order_sn);
+        }catch (BusinessException $exception) {
+            $errMsg = $exception->getMessage();
+        }
+
+        $this->assertIsArray($result, $errMsg ?? '');
+    }
+
+    /**
+     * 取消订单(仅限京东订单)
+     *
+     * @throws \GuzzleHttp\Exception\GuzzleException
+     */
+    public function testOrderCancel()
+    {
+
+        //  订单号
+        $order_sn = '000000111111000000111111';
+        $result = false;
+
+        try {
+            $result = $this->app->order->cancel($order_sn);
+        }catch (BusinessException $exception) {
+            $errMsg = $exception->getMessage();
+        }
+
+        $this->assertIsArray($result, $errMsg ?? '');
+    }
+
 }
