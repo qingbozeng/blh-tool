@@ -263,12 +263,54 @@ class OperationTest extends TestCase
     public function testMerchandiseDetail()
     {
 
-        //  从 merchandise->ids() 获取
         $source_id = 0;
         $result = false;
 
         try {
             $result = $this->app->merchandise->detail($source_id);
+        }catch (BusinessException $exception) {
+            $errMsg = $exception->getMessage();
+        }
+
+        $this->assertIsArray($result, $errMsg ?? '');
+    }
+
+    /**
+     * 查询商城支持的快递公司
+     *
+     * @throws \GuzzleHttp\Exception\GuzzleException
+     */
+    public function testLogisticCompany()
+    {
+
+        $result = false;
+
+        try {
+            $result = $this->app->logistic->company();
+        }catch (BusinessException $exception) {
+            $errMsg = $exception->getMessage();
+        }
+
+        $this->assertIsArray($result, $errMsg ?? '');
+    }
+
+    /**
+     * 根据物流单号查询发货信息（实物订单）
+     *
+     * @throws \GuzzleHttp\Exception\GuzzleException
+     */
+    public function testLogisticExpress()
+    {
+        //  物流单号
+        $nums = '';
+        $companyName = '中通快递';
+        $result = false;
+
+        try {
+            $result = $this->app->logistic
+                ->setCompany($companyName)
+                ->express($nums);
+
         }catch (BusinessException $exception) {
             $errMsg = $exception->getMessage();
         }

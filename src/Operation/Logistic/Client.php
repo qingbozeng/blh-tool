@@ -72,7 +72,8 @@ class Client extends BaseClient
     public function express($nums)
     {
         return $this->httpPost($this->getOrderExpress, [
-            'nums' => $nums, 'company' => $this->getCompany()
+            'nums' => $nums,
+            'company' => $this->getCompany()
         ]);
     }
 
