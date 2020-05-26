@@ -318,4 +318,26 @@ class OperationTest extends TestCase
         $this->assertIsArray($result, $errMsg ?? '');
     }
 
+    /**
+     * 查询京东商品库存
+     *
+     * @throws \GuzzleHttp\Exception\GuzzleException
+     */
+    public function testStoreRegionStore()
+    {
+
+        //  商品id 支持数组
+        $itemIds = '1';
+        $result = false;
+
+        try {
+            $result = $this->app->store->regionStore($itemIds);
+
+        }catch (BusinessException $exception) {
+            $errMsg = $exception->getMessage();
+        }
+
+        $this->assertIsArray($result, $errMsg ?? '');
+    }
+
 }
