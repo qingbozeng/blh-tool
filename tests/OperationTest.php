@@ -137,7 +137,7 @@ class OperationTest extends TestCase
             'orderId' => '',
             //  订单类型（ 1:自营实物订单，2虚拟卡券订单，3：直充产品订单，4：京东实物订单 ）
             'isvirtual' => '',
-            //  shouhuo_phone
+            //  收货联系电话
             'shouhuo_phone' => '',
             //  订单商品
             'products' => [
