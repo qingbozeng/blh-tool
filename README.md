@@ -6,7 +6,7 @@
 ## Composer Installing
 
 ```shell
-$ composer require seebyyu/blh -vvv
+$ composer require seebyyu/blh
 ```
 
 ## Usage
