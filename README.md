@@ -16,7 +16,7 @@ Config
 return [
 
     /**
-     * 账号基本信息，联系客服发放
+     * 运营系统三方账号基本信息，联系客服发放
      */
     'app_id' => 'appid',
     'secret' => 'secret',
