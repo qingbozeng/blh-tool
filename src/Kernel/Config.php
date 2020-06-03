@@ -10,7 +10,7 @@
 namespace Blh\Kernel;
 
 
-use Illuminate\Support\Arr;
+use Arr;
 
 class Config
 {
