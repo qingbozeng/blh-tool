@@ -73,7 +73,6 @@ $app->rebind('cache', new RedisAdapter(app('redis')->connection()->client()));
 ## Rely on
 - pimple/pimple
 - guzzlehttp/guzzle
-- illuminate/support
 
 ## License
 
