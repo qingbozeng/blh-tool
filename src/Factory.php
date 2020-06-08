@@ -14,7 +14,8 @@ namespace Blh;
 /**
  * Class Factory.
  *
- * @method static \Blh\Operation\Application            operation(array $config)
+ * @method static \Blh\Operation\Application    operation(array $config)
+ * @method static \Blh\Activity\Application     activity(array $config)
  */
 class Factory
 {

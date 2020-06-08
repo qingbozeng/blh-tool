@@ -10,7 +10,7 @@
 namespace Blh\Kernel;
 
 
-use Arr;
+use \Blh\Kernel\Arr;
 
 class Config
 {

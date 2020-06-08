@@ -20,9 +20,16 @@ return [
      */
     'app_id' => 'appid',
     'secret' => 'secret',
+    
+    /**
+     * 活动系统
+     */
+    'activity' => [
+        'app_id' => 'app_id',
+        'secret' => 'secret',
+    ],
 
     'sms' => [
-        //  默认短信签名
         'sign' =>  'test'
     ],
 
@@ -49,10 +56,39 @@ Example
 
 // 获取通知消息
 $app = \Blh\Factory::operation($config);
+
+// 获取通知列表
 $app->notice->getList();
 
 // 发送短信
 $app->sms->send('139****5804', 'see hi', '签名');
+
+// 活动系统
+$app = \Blh\Factory::activity($config);
+
+// 活动id
+$aid = '1000002';
+
+// 用户id
+$mid = '000-00001';
+
+// 订单id
+$unique_id = date('Ymd');
+
+// 前端同步登录
+$app->synchronizationLogin($aid, $mid)
+
+// 活动列表
+$app->activityList()
+
+// 增加权益
+$app->equityAdd($mid, 10, $unique_id, $aid)
+
+// 检查权益充值
+$app->equityFind($unique_id)
+
+// 商户同步登陆
+$app->mainLogin($aid, 'https://www.baiduc.com')
 
 ...
 ```
