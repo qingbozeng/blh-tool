@@ -150,7 +150,7 @@ class Client
             }
         }
 
-        $str  = $str . '&appSecret=' . $this->salt;
+        $str  = $str . '&appSecret=' . $this->getSalt();
 
         $sign = strtoupper(md5($str));
 
@@ -162,11 +162,12 @@ class Client
      * @param array $arr
      * @return bool
      */
-    protected function checkSignature(array $arr = [])
+    public function checkSignature(array $arr = [])
     {
         if( !is_array($arr) || empty($arr) ) {
             return false;
         }
+
         $sign = $this->getSignature($arr);
 
         return $arr['sign'] === $sign;
