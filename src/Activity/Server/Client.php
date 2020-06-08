@@ -150,7 +150,7 @@ class Client
             }
         }
 
-        $str  = $str . '&appSecret=' . $this->salt;
+        $str  = $str . '&appSecret=' . $this->getSalt();
 
         $sign = strtoupper(md5($str));
 
