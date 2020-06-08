@@ -76,21 +76,20 @@ $mid = '000-00001';
 $unique_id = date('Ymd');
 
 // 前端同步登录
-$app->synchronizationLogin($aid, $mid)
+$app->synchronizationLogin($aid, $mid);
 
 // 活动列表
-$app->activityList()
+$app->activityList();
 
 // 增加权益
-$app->equityAdd($mid, 10, $unique_id, $aid)
+$app->equityAdd($mid, 10, $unique_id, $aid);
 
 // 检查权益充值
-$app->equityFind($unique_id)
+$app->equityFind($unique_id);
 
 // 商户同步登陆
-$app->mainLogin($aid, 'https://www.baiduc.com')
+$app->mainLogin($aid, 'https://www.baiduc.com');
 
-...
 ```
 
 Laravel
