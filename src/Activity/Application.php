@@ -43,10 +43,9 @@ class Application extends ServiceContainer
     ];
 
     /**
-     * call method
-     *
      * @param $method
      * @param $arguments
+     * @return mixed
      * @throws BadMethodCallException
      */
     public function __call($method, $arguments)
