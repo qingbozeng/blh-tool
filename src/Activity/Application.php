@@ -57,6 +57,6 @@ class Application extends ServiceContainer
             ));
         }
 
-        $this->server->$method(...$arguments);
+        return $this->server->$method(...$arguments);
     }
 }
