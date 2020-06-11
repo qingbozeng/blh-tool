@@ -52,4 +52,46 @@ class ActivityTest extends TestCase
             $this->app->resetAuth('app_id', 'secret')
         );
     }
+
+    /**
+     * 前端用户同步登陆
+     */
+    public function testSynchronizationLogin()
+    {
+
+        //  用户标实
+        $mid = '0001';
+
+        //  活动code
+        $activity_code = '100003';
+
+        $this->assertIsArray($this->app->synchronizationLogin($activity_code, $mid));
+    }
+
+    /**
+     * 全部活动列表
+     */
+    public function testActivityList()
+    {
+        $this->assertIsArray($this->app->activityList());
+    }
+
+    /**
+     * 增加权益
+     */
+    public function testEquityAdd()
+    {
+        $data = [
+            //  用户编号
+            '0001',
+            //  权益数量
+            '100',
+            //  订单号
+            'sn1993020100201',
+            //  活动编号
+            '100003'
+        ];
+
+        $this->assertIsArray($this->app->equityAdd(...$data));
+    }
 }
