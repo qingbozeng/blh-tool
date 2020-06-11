@@ -94,4 +94,28 @@ class ActivityTest extends TestCase
 
         $this->assertIsArray($this->app->equityAdd(...$data));
     }
+
+    /**
+     * 检查权益
+     */
+    public function testEquityFind()
+    {
+        $this->assertIsArray($this->app->equityFind('sn1993020100201'));
+    }
+
+    /**
+     * 商户登陆
+     */
+    public function testMainLogin()
+    {
+
+        $data = [
+            //  活动编号
+            '100003',
+            //  会话时长默认30分钟(单位秒)
+            3600
+        ];
+
+        $this->assertIsArray($this->app->mainLogin(...$data));
+    }
 }
