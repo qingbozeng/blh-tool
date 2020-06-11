@@ -10,6 +10,8 @@
 namespace Blh\Activity\Server;
 
 
+use Blh\Kernel\Config;
+
 class Client
 {
 
@@ -69,12 +71,50 @@ class Client
 
     /**
      * Client constructor.
-     *
      * @param $app
+     * @param $config
      */
-    public function __construct($app)
+    public function __construct($app, Config $config)
     {
         $this->app = $app;
+
+        $this->resetAuth($config->get('app_id'), $config->get('secret'));
+    }
+
+    /**
+     * @param $app_id
+     * @param $secret
+     * @return $this
+     */
+    public function resetAuth($app_id, $secret)
+    {
+
+        $this->setAppId($app_id);
+        $this->setSalt($secret);
+
+        return $this;
+    }
+
+    /**
+     * @param $appId
+     * @return $this
+     */
+    public function setAppId($appId)
+    {
+        $this->appId = $appId;
+
+        return $this;
+    }
+
+    /**
+     * @param $salt
+     * @return $this
+     */
+    public function setSalt($salt)
+    {
+        $this->salt = $salt;
+
+        return $this;
     }
 
     /**
@@ -82,7 +122,7 @@ class Client
      */
     protected function getAppId()
     {
-        return $this->app['config']->get('activity.app_id');
+        return $this->appId;
     }
 
     /**
@@ -90,7 +130,7 @@ class Client
      */
     private function getSalt()
     {
-        return $this->app['config']->get('activity.secret');
+        return $this->app['config']->get('secret');
     }
 
     /**
@@ -227,6 +267,7 @@ class Client
      */
     public function synchronizationLogin($activity_code = '', $member_code = '')
     {
+
         $certificate = $this->certificateFormat([
             'activity_code' => $activity_code,
             'member_code' => $member_code

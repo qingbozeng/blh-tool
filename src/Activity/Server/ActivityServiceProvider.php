@@ -20,7 +20,7 @@ class ActivityServiceProvider implements ServiceProviderInterface
     public function register(Container $pimple)
     {
         $pimple['server'] = function ($app){
-            return  new Client($app);
+            return  new Client($app, $app->config);
         };
     }
 }

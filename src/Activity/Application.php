@@ -15,20 +15,23 @@ use Blh\Kernel\Exceptions\BadMethodCallException;
 /**
  * Class Application.
  *
+ * 重置auth
+ * @method \Blh\Activity\Server\Client  resetAuth($app_id, $secret);
+ *
  * 同步登陆(普通用户)
- * @method \Blh\Activity\Server\Client  synchronizationLogin($activity_code = '', $member_code = '')
+ * @method \Blh\Activity\Server\Client  synchronizationLogin($activity_code = '', $member_code = '');
  *
  * 活动列表
- * @method \Blh\Activity\Server\Client  activityList()
+ * @method \Blh\Activity\Server\Client  activityList();
  *
  * 增加权益
- * @method \Blh\Activity\Server\Client  equityAdd($member_code, $equity_num, $unique_id, $activity_code)
+ * @method \Blh\Activity\Server\Client  equityAdd($member_code, $equity_num, $unique_id, $activity_code);
  *
  * 检索权益信息
- * @method \Blh\Activity\Server\Client  equityFind($unique_id)
+ * @method \Blh\Activity\Server\Client  equityFind($unique_id);
  *
  * 商户后台登录
- * @method \Blh\Activity\Server\Client  mainLogin($activity_code, $back_url, $overtime = 1800)
+ * @method \Blh\Activity\Server\Client  mainLogin($activity_code, $back_url, $overtime = 1800);
  */
 class Application extends ServiceContainer
 {

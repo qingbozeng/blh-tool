@@ -1,6 +1,6 @@
 <h1 align="center"> 系统接入工具包 </h1>
 
-<p align="center"> Operation SDK.</p>
+<p align="center"> BLH SDK.</p>
 
 
 ## Composer Installing
@@ -16,18 +16,10 @@ Config
 return [
 
     /**
-     * 运营系统三方账号基本信息，联系客服发放
+     * 运营系统, 活动系统 三方账号基本信息，联系客服发放
      */
     'app_id' => 'appid',
     'secret' => 'secret',
-    
-    /**
-     * 活动系统
-     */
-    'activity' => [
-        'app_id' => 'app_id',
-        'secret' => 'secret',
-    ],
 
     'sms' => [
         'sign' =>  'test'
