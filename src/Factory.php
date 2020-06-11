@@ -1,13 +1,12 @@
 <?php
 
-/*
- * This file is part of the overtrue/wechat.
- *
- * (c) overtrue <i@overtrue.me>
- *
- * This source file is subject to the MIT license that is bundled
- * with this source code in the file LICENSE.
- */
+// +----------------------------------------------------------------------
+// | Do what we can do
+// +----------------------------------------------------------------------
+// | Date  : 2020/4/2 - 2:28 下午
+// +----------------------------------------------------------------------
+// | Author: seebyyu <seebyyu@gmail.com> :)
+// +----------------------------------------------------------------------
 
 namespace Blh;
 
