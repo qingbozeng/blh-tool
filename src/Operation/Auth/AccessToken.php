@@ -14,7 +14,7 @@ use Blh\Kernel\AccessToken as BaseAccessToken;
 use Blh\Kernel\Exceptions\HttpException;
 use Blh\Kernel\Exceptions\InvalidArgumentException;
 use Blh\Kernel\Traits\InteractsWithCache;
-use Illuminate\Support\Arr;
+use Blh\Kernel\Arr;
 
 class AccessToken extends BaseAccessToken
 {
