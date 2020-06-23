@@ -72,13 +72,13 @@ $app->synchronizationLogin('1000002', '000-00001');
 $app->activityList();
 
 // 增加权益
-$app->equityAdd('000-00001', 10, date('Ymd'), $aid);
+$app->equityAdd('000-00001', 10, date('Ymd'), '1000002');
 
 // 检查权益充值
 $app->equityFind(date('Ymd'));
 
 // 商户同步登陆
-$app->mainLogin($aid, 'https://www.baiduc.com');
+$app->mainLogin('1000002', 'https://www.baiduc.com');
 ```
 
 Laravel
