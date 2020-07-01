@@ -162,16 +162,10 @@ class Client
     protected function getSignature(array $arr)
     {
 
-        if( !is_array($arr) || empty($arr) ) {
-            return false;
-        }
-
-        //对数组进行字典序排序
-
         $arr = $this->getArr($arr);
 
         $str = '';
-        foreach( $arr as $key => $value ) {
+        foreach($arr as $key => $value ) {
             if( $key == 'sign' ) {
                 continue;
             }
