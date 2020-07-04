@@ -28,7 +28,7 @@ class Client extends BaseClient
     /**
      * @var string
      */
-    protected $company;
+    protected $company = '';
 
     /**
      * @return string
