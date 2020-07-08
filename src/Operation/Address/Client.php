@@ -18,21 +18,29 @@ class Client extends BaseClient
 {
 
     /**
+     * 一级
+     *
      * @var int
      */
     const GRADE_ONE     = 1;
 
     /**
+     * 二级
+     *
      * @var int
      */
     const GRADE_TOW     = 2;
 
     /**
+     * 三级
+     *
      * @var int
      */
     const GRADE_THREE   = 3;
 
     /**
+     * 四级
+     *
      * @var int
      */
     const GRADE_FOUR    = 4;
