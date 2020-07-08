@@ -134,7 +134,8 @@ class Client
     }
 
     /**
-     * getArr  对数组进行正向排序
+     * 对数组进行正向排序
+     *
      * @param $arr
      * @return mixed
      */
@@ -155,7 +156,8 @@ class Client
     }
 
     /**
-     * getSign  生成sign
+     * 生成sign
+     *
      * @param array $arr
      * @return bool|string
      */
@@ -192,7 +194,8 @@ class Client
     }
 
     /**
-     * checkSignature  验签
+     * 验签
+     *
      * @param array $arr
      * @return bool
      */
@@ -255,6 +258,7 @@ class Client
 
     /**
      * 同步登陆
+     *
      * @param string $activity_code 活动code
      * @param string $member_code 用户code
      * @return string
