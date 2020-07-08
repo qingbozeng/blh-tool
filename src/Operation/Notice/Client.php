@@ -41,6 +41,8 @@ class Client extends BaseClient
     }
 
     /**
+     * 获取通知列表
+     *
      * @return array
      * @throws \Blh\Operation\Exceptions\BusinessException
      * @throws \GuzzleHttp\Exception\GuzzleException
