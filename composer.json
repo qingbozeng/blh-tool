@@ -1,9 +1,9 @@
 {
     "name": "seebyyu/vbot",
-    "description": "微信代理 微信机器人 云端在线",
+    "description": "百礼汇sdk",
     "keywords": [
-        "wechat bot sdk",
-        "vbot"
+        "blh-sdk",
+        "sdk"
     ],
     "license": "MIT",
     "authors": [
