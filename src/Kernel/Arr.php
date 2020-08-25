@@ -256,7 +256,7 @@ class Arr
     {
         if (is_null($callback)) {
             if (empty($array)) {
-                return value($default);
+                return self::value($default);
             }
 
             foreach ($array as $item) {
@@ -270,6 +270,6 @@ class Arr
             }
         }
 
-        return value($default);
+        return self::value($default);
     }
 }
