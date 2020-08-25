@@ -9,7 +9,7 @@
 namespace blh\tests;
 
 
-use Blh\Factory;
+use Blh\Vbot;
 use Blh\Operation\Exceptions\BusinessException;
 use PHPUnit\Framework\TestCase;
 
@@ -61,7 +61,7 @@ class OperationTest extends TestCase
      */
     public function setUp()
     {
-        $this->app = Factory::operation($this->config);
+        $this->app = Vbot::operation($this->config);
     }
 
     /**
