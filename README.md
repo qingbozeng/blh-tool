@@ -51,7 +51,7 @@ Operation Example
 ```php
 
 // 运营系统
-$app = \Blh\Factory::operation($config);
+$app = \Blh\Vbot::operation($config);
 
 // 获取通知列表
 $app->notice->getList();
@@ -63,7 +63,7 @@ $app->sms->send('139****5804', 'see hi', '签名');
 Activity Example
 ```php
 // 活动系统
-$app = \Blh\Factory::activity($config);
+$app = \Blh\Vbot::activity($config);
 
 // 前端同步登录
 $app->synchronizationLogin('1000002', '000-00001');

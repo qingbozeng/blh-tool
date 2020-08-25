@@ -1,9 +1,9 @@
 {
-    "name": "seebyyu/vbot",
-    "description": "微信代理 微信机器人 云端在线",
+    "name": "seebyyu/blh",
+    "description": "百礼汇sdk",
     "keywords": [
-        "wechat bot sdk",
-        "vbot"
+        "blh-sdk",
+        "sdk"
     ],
     "license": "MIT",
     "authors": [
@@ -15,19 +15,23 @@
     "require": {
         "php": ">=7.2",
         "guzzlehttp/guzzle": "~6.2",
-        "pimple/pimple": "^3.0"
+        "pimple/pimple": "^3.0",
+        "symfony/cache": "^4.0",
+        "psr/simple-cache": "^1.0"
     },
     "require-dev": {
+        "mockery/mockery": "^1.2.3",
+        "phpstan/phpstan": "^0.12.0",
         "phpunit/phpunit": "^7.5"
     },
     "autoload": {
         "psr-4": {
-            "VBot\\": "src"
+            "Blh\\": "src"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "VBot\\Tests\\": "tests/"
+            "Blh\\Tests\\": "tests/"
         }
     }
 }

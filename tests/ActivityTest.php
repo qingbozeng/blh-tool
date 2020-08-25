@@ -11,7 +11,7 @@ namespace blh\tests;
 
 
 use PHPUnit\Framework\TestCase;
-use Blh\Factory;
+use Blh\Vbot;
 
 class ActivityTest extends TestCase
 {
@@ -39,7 +39,7 @@ class ActivityTest extends TestCase
      */
     public function setUp()
     {
-        $this->app = Factory::activity($this->config);
+        $this->app = Vbot::activity($this->config);
     }
 
     /**
